@@ -1,0 +1,276 @@
+:root{
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --primary-color: #ed4d2d;
+    --border-color: #b7b4b4;
+    --star-gold-color: rgb(233, 233, 131);
+    --navbar-height: 34px;
+    --header-heigth: 120px;
+    --header-with-search-height: calc(var(--header-heigth) - var(--navbar-height));
+
+}
+
+*{
+    box-sizing: inherit;
+}
+
+html {
+    /* hack muon 12px 1,2 em or 16px 1,6 em */ 
+   font-size: 62.5%;
+   line-height: 1.6rem;
+   font-family: 'Roboto', sans-serif;
+   box-sizing: border-box;
+}
+
+/* responive */
+
+.grid{
+    width: 1100px;
+    max-width: 100%;
+    margin: 0 auto;
+
+}
+
+.grid__full-width{
+    width: 100%;
+}
+
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+
+/* test */
+.grid__column-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+
+.grid__column-2-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+.grid__column-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3334%;
+}
+
+/* animation */
+
+@keyframes fadein {
+    from{
+            opacity: 0;
+    }
+
+    to{
+            opacity: 1;
+    } 
+
+}
+
+@keyframes headerNoti{
+    from{
+        /* do lon len phong to thu  nho */
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from{
+        transform: scale(var(--growth-form));
+    }
+    to{
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* modal*/
+
+.modal  {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: fadein linear 0.1s;
+
+}
+
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body{
+    --growth-form: 0.7;
+    --growth-to: 1;
+    margin: auto;
+    position: relative;
+    background-color: var(--white-color);
+    /* điều chỉnh 
+    thứ tự hiển thị */
+    z-index: 1;
+    animation: growth linear 0.1s;  
+}
+
+/* nut dung chung button style*/
+
+.btn{
+    min-width: 124px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    padding: 0 12px;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6rem;
+}
+.btn.auth-form__controls-back{
+    background-color: #fff;
+}
+.btn.btn--normal:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn.btn--size-s{
+    height: 32px;
+    font-size: 12px;
+    padding: 0 8px;
+
+}
+
+/* cach goi ten nay chi den the chua 2 class nay */
+.btn.btn--primary{
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+
+
+/* class vo hieu hoa */
+.btn.btn--disabled{
+    color: #949494;
+    cursor: default;
+    background-color: #c3c3c3;
+}
+
+/* selection */
+.select-input{
+    min-width: 150px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.select-input__label{
+    font-size: 1.4rem;
+
+}
+
+.select-input__icon{
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: 1px;
+}
+
+.select-input:hover .select-input__list{
+    display: block;
+}
+
+.select-input__list{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding: 8px 16px;
+    list-style: none;
+    display: none;
+    z-index: 1;
+}
+
+.select-input__link{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 4px 0;
+
+}
+
+.select-input__link:hover{
+color: var(--primary-color);
+
+}
+
+
+/* pagination */
+
+.pagination{
+display: flex;
+justify-content: center;
+align-items: center;
+list-style: none;
+
+}
+.pagination-item{
+
+margin: 0 14px;
+}
+
+.pagination-item--active  .pagination-item__link{
+color: var(--white-color);
+background-color: var(--primary-color);
+}
+
+.pagination-item--active  .pagination-item__link:hover{
+    background-color: #ed5c3f;
+}
+
+.pagination-item__link{
+
+    --height: 30px;
+display: block;
+text-decoration: none;
+font-size: 2rem;
+font-weight: 300;
+color: #939393;
+min-width: 40px;
+height: var( --height);
+text-align: center;
+line-height: var( --height);
+border-radius: 2px;
+}
+.pagination-item__icon{
+
+
+}
